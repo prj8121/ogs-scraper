@@ -33,11 +33,12 @@ const AppNavigator = () => {
   );
 }
 
-const Screen1 = () => {
+const Screen1 = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Text style={{marginBottom:2}}>Input username</Text>
       <TextInputExample style={styles.textInput}/>
+      <Button title="to Page 2" onPress={()=>navigation.navigate("S2")}/>
       <StatusBar style="auto" />
     </View>
   )
