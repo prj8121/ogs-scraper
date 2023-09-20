@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Input username</Text>
-      <TextInputExample />
+      <Text style={{marginBottom:2}}>Input username</Text>
+      <TextInputExample style={styles.textInput}/>
       <StatusBar style="auto" />
     </View>
   );
@@ -15,10 +15,34 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#ffcc66',
     alignItems: 'center',
     justifyContent: 'center',
   },
+  textInput: {
+    backgroundColor: '#ffe6b3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: 3,
+    borderColor: 'black',
+    borderWidth:3,
+    borderHeight:7,
+  },
+  button: {
+    backgroundColor: '#668cff',
+    padding: 1,
+    borderRadius: 10,
+  },
+  iosShadow: {
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+  },
+  bordered: {
+    borderColor: 'black',
+    borderWidth:3,
+  }
 });
 
 
@@ -37,11 +61,14 @@ const TextInputExample = () => {
   return (
     <View>
       <TextInput
-        placeholder="Type something..."
+        style={[styles.textInput, styles.iosShadow, {marginBottom: 4} ]}
+        placeholder="goPlayer123"
         onChangeText={handleInputChange} // Call handleInputChange when the text input changes
         value={inputText} // Set the value of the input to the inputText state
       />
-      <Button title="Submit" onPress={handleSubmit} />
+      <View style={[styles.button, styles.iosShadow, styles.bordered, {borderWidth:2}]}>
+        <Button title="Submit" onPress={handleSubmit}/>
+      </View>
     </View>
   );
 };
